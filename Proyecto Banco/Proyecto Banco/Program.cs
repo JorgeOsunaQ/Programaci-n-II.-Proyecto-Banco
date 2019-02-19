@@ -12,6 +12,7 @@ namespace Proyecto_Banco
         {
             Console.WriteLine("Funciona?");
             Console.WriteLine("Si");
+            Console.ReadKey();
         }
     }
 }
