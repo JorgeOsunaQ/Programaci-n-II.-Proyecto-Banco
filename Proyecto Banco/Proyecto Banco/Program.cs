@@ -11,7 +11,6 @@ namespace Proyecto_Banco
         static void Main(string[] args)
         {
             Console.WriteLine("Funciona?");
-            sdsd;
         }
     }
 }
