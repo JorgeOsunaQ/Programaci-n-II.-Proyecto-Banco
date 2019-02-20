@@ -4,9 +4,9 @@ namespace ProyectoBancoP2
     public class Movimiento
     {
 
-        string Tipo;
-        double Importe;
-        string NombreDepositador;
+        private string Tipo;
+        private double Importe;
+        private string NombreDepositador;
 
         public Movimiento(string Tipo, double Importe, string NombreDepositador)
         {

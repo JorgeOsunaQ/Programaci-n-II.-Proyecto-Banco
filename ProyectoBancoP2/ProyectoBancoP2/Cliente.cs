@@ -45,9 +45,8 @@ namespace ProyectoBancoP2
 
         public override string ToString()
         {
-            string res = String.Format("Nombre: {0,-5}\n Clave: {1,-3}\n Ciudad de residencia: {2,-3}, Domicilio: {3,-5}\n " +
-                "Teléfono: {4,-5}",pNombre,pClave,pCiudad,pDomicilio,pTelefono);
-
+            string res = String.Format("NOMBRE: {0,-5}\n CLAVE: {1,-3}\n CIUDAD DE RESIDENCIA: {2,-3}, DOMICILIO: {3,-5}\n " +
+                "TELEFONO: {4,-5}",pNombre,pClave,pCiudad,pDomicilio,pTelefono);
             return res;
         }
     }

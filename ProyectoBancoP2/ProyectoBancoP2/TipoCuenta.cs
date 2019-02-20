@@ -4,9 +4,9 @@ namespace ProyectoBancoP2
     public class TipoCuenta
     {
 
-        string Nombre;
-        double MontoMinimo;
-        string Descripcion;
+        private string Nombre;
+        private double MontoMinimo;
+        private string Descripcion;
         
         public TipoCuenta(string Nombre, double MontoMinimo, string Descripcion)
         {
