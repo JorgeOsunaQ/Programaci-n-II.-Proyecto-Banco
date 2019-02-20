@@ -7,6 +7,7 @@ namespace ProyectoBancoP2
         static void Main(string[] args)
         {
             Console.WriteLine("Funciona? v2");
+            Console.WriteLine("Si");
         }
     }
 }
