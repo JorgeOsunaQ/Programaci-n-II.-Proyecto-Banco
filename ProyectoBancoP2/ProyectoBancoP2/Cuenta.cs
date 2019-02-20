@@ -6,7 +6,7 @@ namespace ProyectoBancoP2
 {
     class Cuenta
     {
-        private static int count;
+        private static int count=1;
         private int claveCuenta;
         private double saldo;
         private string nombreCuenta;
@@ -18,6 +18,7 @@ namespace ProyectoBancoP2
             this.claveCuenta = count;
             this.nombreCuenta = tipoCuenta;
             this.saldo = saldoInicial;
+            count++;
         }
 
         public int pClaveCuenta
