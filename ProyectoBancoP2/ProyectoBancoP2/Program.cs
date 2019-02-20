@@ -8,6 +8,7 @@ namespace ProyectoBancoP2
         {
             Console.WriteLine("Funciona? v2");
             Console.WriteLine("Si");
+            Console.WriteLine("Ya, qlo");
         }
     }
 }
