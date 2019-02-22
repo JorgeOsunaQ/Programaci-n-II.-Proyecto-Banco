@@ -2,13 +2,14 @@
 
 namespace ProyectoBancoP2
 {
+    // preguntar modificar, tipos cuenta
+
+
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Funciona? v2");
-            Console.WriteLine("Si");
-            Console.WriteLine("Ya, qlo");
+            Console.WriteLine("Proyecto de Jorgito y el cosalteco");
         }
     }
 }

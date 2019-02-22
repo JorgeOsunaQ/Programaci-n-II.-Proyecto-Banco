@@ -6,11 +6,13 @@ namespace ProyectoBancoP2
 
         private string Tipo;
         private double Importe;
+        private int ClaveCuenta;
         private string NombreDepositador;
 
-        public Movimiento(string Tipo, double Importe, string NombreDepositador)
+        public Movimiento(string Tipo, int ClaveCuenta, double Importe, string NombreDepositador)
         {
             this.Tipo = Tipo;
+            this.ClaveCuenta = ClaveCuenta;
             this.Importe = Importe;
             this.NombreDepositador = NombreDepositador;
         }

@@ -6,7 +6,7 @@ namespace ProyectoBancoP2
 {
     class Cliente
     {
-        private static int count=0;
+
         private int clave;
         private string nombre;
         private string domicilio;
@@ -15,8 +15,7 @@ namespace ProyectoBancoP2
 
         public Cliente(int clave, string nom, string dom, string ci, string tel)
         {
-            count++;
-            this.clave = count;
+            this.clave = clave;
             this.nombre = nom;
             this.domicilio = dom;
             this.ciudad = ci;

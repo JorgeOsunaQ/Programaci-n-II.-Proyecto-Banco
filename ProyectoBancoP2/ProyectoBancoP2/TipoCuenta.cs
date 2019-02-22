@@ -53,7 +53,7 @@ namespace ProyectoBancoP2
 
         public override string ToString()
         {
-            string str = string.Format("\nNOMBRE: {0}\nMONTO MINIMO: {1}\nDESCRIPCION: {2}", Nombre, MontoMinimo, Descripcion);
+            string str = string.Format("\nNOMBRE: {0}\nMONTO MINIMO: {1:c}\nDESCRIPCION: {2}", Nombre, MontoMinimo, Descripcion);
             return str;
         }
     }
