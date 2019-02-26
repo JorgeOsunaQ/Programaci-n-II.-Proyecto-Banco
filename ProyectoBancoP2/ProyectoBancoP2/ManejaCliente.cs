@@ -6,12 +6,15 @@ namespace ProyectoBancoP2
     public class ManejaCliente
     {
 
+        ManejaCuenta manejaCuenta;
+
         Dictionary<int, Cliente> clientes;
         int countClave = 1;
 
-        public ManejaCliente()
+        public ManejaCliente(ManejaCuenta manejaCuenta)
         {
             clientes = new Dictionary<int, Cliente>();
+            this.manejaCuenta = manejaCuenta;
         }
 
         public void agrega(string Nombre, string Domicilio, string Ciudad, string Telefono)
@@ -25,6 +28,11 @@ namespace ProyectoBancoP2
            return clientes.ContainsKey(key);
         }
 
+        public void elimina(int key)
+        {
+            clientes.Remove(key);
+        }
+
         public string consulta(int key)
         {
             string str="";
@@ -35,6 +43,16 @@ namespace ProyectoBancoP2
                     str = item.ToString();
                     break;
                 }
+            }
+            return str;
+        }
+
+        public override string ToString()
+        {
+            string str = "";
+            foreach (var item in clientes.Keys)
+            {
+                str = item.ToString() + "\n";
             }
             return str;
         }
