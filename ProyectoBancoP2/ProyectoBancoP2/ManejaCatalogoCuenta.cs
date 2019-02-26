@@ -3,7 +3,9 @@ namespace ProyectoBancoP2
 {
     public class ManejaCatalogoCuenta
     {
-        TipoCuenta[] catalogo;
+
+        private TipoCuenta[] catalogo;
+        int pos=0;
 
         public ManejaCatalogoCuenta()
         {
@@ -11,14 +13,55 @@ namespace ProyectoBancoP2
             agregaBase();
         }
 
-        private void agregaBase()
+        public TipoCuenta[] pTipoCuenta
         {
-            catalogo[0] = new TipoCuenta("DIGITAL",10000,"PRIVILEGIOS BASICOS. NO INCLUYE TARJETA FISICA");
-            catalogo[1] = new TipoCuenta("BASICA",4000,"REQUIERE SALDO MINIMO");
-            catalogo[2] = new TipoCuenta("NOMINA",0,"DEPOSITOS DE NOMINA");
+            get { return catalogo; }
         }
 
-        public string imprimir()
+        private void agregaBase()
+        {
+            agrega("DIGITAL",10000,"PRIVILEGIOS BASICOS. NO INCLUYE TARJETA FISICA");
+            agrega("BASICA",4000,"REQUIERE SALDO MINIMO");
+            agrega("NOMINA",0,"DEPOSITOS DE NOMINA");
+        }
+
+        public void agrega(string Nombre, double MontoMinimo, string Descripcion)
+        {
+            catalogo[pos] = new TipoCuenta(Nombre, MontoMinimo, Descripcion);
+            pos++;
+        }
+
+        public int posTipoCuenta(string Nombre)
+        {
+            int posTC=-1;
+            for (int i = 0; i < pos; i++)
+            {
+                if (catalogo[i]!=null)
+                {
+                    if (catalogo[i].pNombre.Equals(Nombre))
+                    {
+                        posTC = i;
+                    }
+                }
+            }
+            return posTC;
+        }
+
+        public void elimina(string Nombre)
+        {
+            for (int i = 0; i < pos; i++)
+            {
+                if (catalogo[i] != null)
+                {
+                    if (catalogo[i].pNombre.Equals(Nombre))
+                    {
+                        catalogo[i] = null;
+                    }
+                }
+            }
+        }
+
+        public override string ToString()
         {
             string str = "";
             foreach (TipoCuenta item in catalogo)

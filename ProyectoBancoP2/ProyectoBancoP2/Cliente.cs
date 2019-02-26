@@ -7,24 +7,19 @@ namespace ProyectoBancoP2
     class Cliente
     {
 
-        private int clave;
         private string nombre;
         private string domicilio;
         private string ciudad;
         private string telefono;
 
-        public Cliente(int clave, string nom, string dom, string ci, string tel)
+        public Cliente(string nom, string dom, string ci, string tel)
         {
-            this.clave = clave;
             this.nombre = nom;
             this.domicilio = dom;
             this.ciudad = ci;
             this.telefono = tel;
         }
 
-        public int pClave {
-            get => clave;
-        }
         public string pNombre {
             get => nombre;
             set => nombre = value;
@@ -44,8 +39,8 @@ namespace ProyectoBancoP2
 
         public override string ToString()
         {
-            string res = String.Format("NOMBRE: {0,-5}\n CLAVE: {1,-3}\n CIUDAD DE RESIDENCIA: {2,-3}, DOMICILIO: {3,-5}\n " +
-                "TELEFONO: {4,-5}",pNombre,pClave,pCiudad,pDomicilio,pTelefono);
+            string res = String.Format("NOMBRE: {0,-5}\n CIUDAD DE RESIDENCIA: {1,-3}, DOMICILIO: {2,-5}\n " +
+                "TELEFONO: {3,-5}",pNombre,pCiudad,pDomicilio,pTelefono);
             return res;
         }
     }
