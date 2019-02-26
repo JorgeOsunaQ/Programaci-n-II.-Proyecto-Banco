@@ -7,7 +7,7 @@ namespace ProyectoBancoP2
     {
        private Dictionary<int, Cuenta> cuentas;
 
-        public ManejaCuentas(ManejaMovimiento manejadora)
+        public ManejaCuentas()
         {
             this.cuentas = new Dictionary<int, Cuenta>();
         }

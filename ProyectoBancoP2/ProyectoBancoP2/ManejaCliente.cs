@@ -6,12 +6,12 @@ namespace ProyectoBancoP2
     public class ManejaCliente
     {
 
-        ManejaCuenta manejaCuenta;
+       private ManejaCuentas manejaCuenta;
 
         Dictionary<int, Cliente> clientes;
         int countClave = 1;
 
-        public ManejaCliente(ManejaCuenta manejaCuenta)
+        public ManejaCliente(ManejaCuentas manejaCuenta)
         {
             clientes = new Dictionary<int, Cliente>();
             this.manejaCuenta = manejaCuenta;
@@ -36,7 +36,7 @@ namespace ProyectoBancoP2
         public string consulta(int key)
         {
             string str="";
-            foreach (var item in clientes.Keys)
+            foreach (var item in clientes.Keys)//?
             {
                 if (item==key)
                 {
@@ -50,7 +50,7 @@ namespace ProyectoBancoP2
         public override string ToString()
         {
             string str = "";
-            foreach (var item in clientes.Keys)
+            foreach (var item in clientes.Keys)//?
             {
                 str = item.ToString() + "\n";
             }

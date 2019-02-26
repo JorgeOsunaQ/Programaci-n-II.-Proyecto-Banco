@@ -26,13 +26,30 @@ namespace ProyectoBancoP2
             return flag;
         }
 
-        public bool Deposito(double cant, int claveC)
+        public bool Deposito(double cant, int claveC,string nombreDepositante)
         {
             bool flag = false;
+            Cuenta temp = manejaC.BuscarCuenta(claveC);
 
-            if (manejaC.BuscarCuenta(claveC)!=null)
+            if (temp!=null && cant>0)
             {
-                manejaC.BuscarCuenta(claveC).pSaldo += cant;
+                temp.pSaldo += cant;
+                Agrega("DEPOSITO",claveC,cant,nombreDepositante);
+                flag = true;
+            }
+
+            return flag;
+        }
+
+        public bool Retiro(double cant, int claveC, string nombreDepositante)
+        {
+            bool flag = false;
+            Cuenta temp = manejaC.BuscarCuenta(claveC);
+
+            if (temp!=null && temp.pSaldo-cant>=0)
+            {
+                temp.pSaldo -= cant;
+                Agrega("RETIRO", claveC, cant, nombreDepositante);
                 flag = true;
             }
 

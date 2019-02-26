@@ -53,14 +53,13 @@ namespace ProyectoBancoP2
             {
                 if (catalogo[i] != null)
                 {
-                    if (catalogo[i].pNombre.Equals(Nombre))
+                    if (catalogo[i].pNombre.Equals(Nombre.ToUpper()))
                     {
                         catalogo[i] = null;
                     }
                 }
             }
         }
-
         public override string ToString()
         {
             string str = "";

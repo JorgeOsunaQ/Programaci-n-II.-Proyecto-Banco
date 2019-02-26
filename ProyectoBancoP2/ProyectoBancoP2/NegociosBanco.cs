@@ -6,12 +6,21 @@ namespace ProyectoBancoP2
     public class NegociosBanco
     {
 
+        ManejaCuentas manejaCuenta;
+        ManejaMovimiento manejaMovimientos;
+        ManejaCliente manejaCliente;
+        ManejaCatalogoCuenta manejaCatalogoCuenta;
+
+        public NegociosBanco()
+        {
+            this.manejaCuenta = new ManejaCuentas();
+            this.manejaMovimientos = new ManejaMovimiento(manejaCuenta);
+            this.manejaCliente = new ManejaCliente(manejaCuenta);
+            this.manejaCatalogoCuenta = new ManejaCatalogoCuenta();
+        }
+
         public void menu()
         {
-
-            ManejaCuenta manejaCuenta = new ManejaCuenta();
-            ManejaCliente manejaCliente = new ManejaCliente(manejaCuenta);
-            ManejaCatalogoCuenta manejaCatalogoCuenta = new ManejaCatalogoCuenta();
 
             int key = 0;
 
@@ -26,7 +35,7 @@ namespace ProyectoBancoP2
                     case 1:
                         break;
                     case 2:
-                        menuClientes(manejaCliente);
+                        menuClientes();
                         break;
                     case 3:
                         break;
@@ -60,7 +69,7 @@ namespace ProyectoBancoP2
 
         }
 
-        public void menuClientes(ManejaCliente manejaCliente)
+        public void menuClientes()
         {
 
             int key = 0;
