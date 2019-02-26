@@ -31,20 +31,20 @@ namespace ProyectoBancoP2
             pos++;
         }
 
-        public int posTipoCuenta(string Nombre)
+        public TipoCuenta consulta(string Nombre)
         {
-            int posTC=-1;
+            TipoCuenta cuenta = null;
             for (int i = 0; i < pos; i++)
             {
                 if (catalogo[i]!=null)
                 {
                     if (catalogo[i].pNombre.Equals(Nombre))
                     {
-                        posTC = i;
+                        cuenta = catalogo[i];
                     }
                 }
             }
-            return posTC;
+            return cuenta;
         }
 
         public void elimina(string Nombre)

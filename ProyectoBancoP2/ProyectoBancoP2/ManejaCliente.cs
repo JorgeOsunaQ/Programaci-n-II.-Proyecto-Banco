@@ -20,7 +20,7 @@ namespace ProyectoBancoP2
             countClave++;
         }
 
-        public bool validaExistencia(int key)
+        public bool existe(int key)
         {
            return clientes.ContainsKey(key);
         }
