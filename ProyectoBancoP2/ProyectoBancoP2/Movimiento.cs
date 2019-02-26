@@ -17,6 +17,18 @@ namespace ProyectoBancoP2
             this.NombreDepositador = NombreDepositador;
         }
 
+        public int pClaveCuenta
+        {
+            get
+            {
+                return ClaveCuenta;
+            }
+            set
+            {
+                ClaveCuenta = value;
+            }
+        }
+
         public string pTipo
         {
             get
@@ -55,7 +67,7 @@ namespace ProyectoBancoP2
 
         public override string ToString()
         {
-            string str = string.Format("\nTIPO: {0}\nIMPORTE: {1}\nDEPOSITADOR: {2}", Tipo, Importe, NombreDepositador);
+            string str = string.Format("\nCLAVE DE LA CUENTA: {3,-3:D4}\nTIPO: {0}\nIMPORTE: {1}\nDEPOSITADOR: {2}", Tipo, Importe, NombreDepositador,ClaveCuenta);
             return str;
         }
     }

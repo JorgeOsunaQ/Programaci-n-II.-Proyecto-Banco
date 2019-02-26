@@ -7,10 +7,14 @@ namespace ProyectoBancoP2
         {
         }
 
+        public void Main()
+        {
+      
+        }
+
         public void menu()
         {
-
-            int key = 0;
+            int key = 1;
 
             do
             {
@@ -32,7 +36,7 @@ namespace ProyectoBancoP2
             } while (key != 0);
         }
 
-        public void menuMovimientos()
+        public void menuMovimiento()
         {
 
             int key = 0;
