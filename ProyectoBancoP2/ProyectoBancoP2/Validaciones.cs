@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+
 namespace ProyectoBancoP2
 {
     public class Validaciones
@@ -42,7 +44,15 @@ namespace ProyectoBancoP2
             return value;
         }
 
-        // formato telefono, lectura de datos
+        public static bool validaTelefono(string value)
+        {
+            Regex regex = new Regex("^((\\+[52]{2}(\\s|\\-)?)?(((\\(\\d{3}\\))|(\\d{3}))((\\s|\\-)?(\\d{3}))((\\s|\\-)?(\\d{2})){2}))$");
+            Match match = regex.Match(value);
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
 
     }
 }
