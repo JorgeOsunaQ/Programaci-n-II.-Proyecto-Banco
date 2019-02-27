@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProyectoBancoP2
 {
-    class Cliente
+    public class Cliente
     {
 
         private string nombre;

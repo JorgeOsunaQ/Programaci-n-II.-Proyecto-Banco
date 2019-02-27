@@ -31,6 +31,19 @@ namespace ProyectoBancoP2
            return clientes.ContainsKey(key);
         }
 
+        public Cliente BuscarCliente(string nom)
+        {
+            Cliente temp=null;
+            foreach(KeyValuePair<int, Cliente> data in clientes)
+            {
+                if (data.Value.pNombre.Equals(nom.ToUpper()))
+                {
+                    temp = data.Value;
+                }
+            }
+            return temp;
+        }
+
         public string Consulta(int key)
         {
             string str="";
