@@ -31,17 +31,20 @@ namespace ProyectoBancoP2
            return clientes.ContainsKey(key);
         }
 
-        public Cliente BuscarCliente(string nom)
+        public int KeyCliente(string Nombre)
         {
-            Cliente temp=null;
-            foreach(KeyValuePair<int, Cliente> data in clientes)
+            int keyC = -1;
+            for (int i = 0; i < clientes.Count; i++)
             {
-                if (data.Value.pNombre.Equals(nom.ToUpper()))
+                var dato = clientes.ElementAt(i);
+                Cliente c = dato.Value;
+                int keyA = dato.Key;
+                if (c.pNombre.Equals(Nombre))
                 {
-                    temp = data.Value;
+                    keyC = keyA;
                 }
             }
-            return temp;
+            return keyC;
         }
 
         public string Consulta(int key)
@@ -54,7 +57,7 @@ namespace ProyectoBancoP2
                 int keyA = dato.Key;
                 if (keyA==key)
                 {
-                    str = "CLAVE: "+keyA+"\n"+c.ToString();
+                    str = "\nCLAVE CLIENTE: "+keyA+"\n"+c.ToString();
                 }
             }
             return str;

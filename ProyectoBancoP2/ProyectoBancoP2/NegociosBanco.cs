@@ -35,9 +35,10 @@ namespace ProyectoBancoP2
                         NegociosCuentas negociosCuentas = new NegociosCuentas(manejaCuenta,manejaCliente,manejaCatalogoCuenta);
                         break;
                     case 2:
-                        NegociosClientes negociosClientes = new NegociosClientes(manejaCliente);
+                        NegociosClientes negociosClientes = new NegociosClientes(manejaCliente, manejaCuenta);
                         break;
                     case 3:
+                        NegociosCuentas negociosCuentas = new NegociosCuentas(manejaCuenta, manejaCliente, manejaCatalogoCuenta);
                         break;
                     case 4:
                         NegociosCuentasBanco negociosCuentasBanco = new NegociosCuentasBanco(manejaCatalogoCuenta);
