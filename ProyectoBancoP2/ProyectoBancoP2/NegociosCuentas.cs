@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 namespace ProyectoBancoP2
 {
     public class NegociosCuentas
@@ -12,10 +12,10 @@ namespace ProyectoBancoP2
             this.manejadoraC = manejaCu;
             this.manejadoraCli = manejaCli;
             this.manejaTipoC = manejadoraCatalogo;
-            menuCuentas();
+            Menu();
         }
 
-        public void menuCuentas()
+        public void Menu()
         {
 
             int key;
@@ -47,7 +47,6 @@ namespace ProyectoBancoP2
                 Console.WriteLine("\nNO SE TIENE REGISTRO DE NINGÚN CLIENTE EN EL SISTEMA.");
                 return;
             }
-            //int claveCuenta, int claveCliente,double saldoInicial,string tipoCuenta
             int claveCliente, clave;
             string tipoCuenta;
             double saldoI;
@@ -76,8 +75,10 @@ namespace ProyectoBancoP2
                 }
             } while (manejadoraC.BuscarCuenta(clave) != null);
 
+            Console.WriteLine(manejaTipoC);
+
             do {
-                Console.WriteLine("\nINGRESE EL TIPO DE CUENTA QUE DESEA AGREGAR.");
+                Console.WriteLine("INGRESE EL TIPO DE CUENTA QUE DESEA AGREGAR.");
                 tipoCuenta = Validaciones.LeerString();
 
                 temp = manejaTipoC.consulta(tipoCuenta.ToUpper());
@@ -87,10 +88,10 @@ namespace ProyectoBancoP2
                     Console.WriteLine("ESTE TIPO DE CUENTA ES INEXISTENTE.");
                     return;
                 }
+            } while ((temp) == null);
 
-                } while ((temp) == null);
-
-            do {
+            do
+            {
                 Console.WriteLine("\nINGRESE UN SALDO INICIAL PARA APERTURAR LA CUENTA.");
                 saldoI = Validaciones.LeerDouble();
 
@@ -100,7 +101,9 @@ namespace ProyectoBancoP2
                 }
             } while (saldoI < temp.pMontoMinimo);
 
-            manejadoraC.Agrega(clave, claveCliente, saldoI, tipoCuenta);
+            if(manejadoraC.Agrega(clave, claveCliente, saldoI, tipoCuenta)){
+                Console.WriteLine("\nCUENTA APERTURADA CON EXITO");
+            }
         }
 
         public void CerrarCuenta()
@@ -144,6 +147,5 @@ namespace ProyectoBancoP2
             manejadoraC.EliminarCuenta(clave);
             Console.WriteLine("LA CUENTA DE CLAVE {0,-2:D4} HA SIDO ELIMINADA DEL SISTEMA.",clave);
         }
-
     }
 }

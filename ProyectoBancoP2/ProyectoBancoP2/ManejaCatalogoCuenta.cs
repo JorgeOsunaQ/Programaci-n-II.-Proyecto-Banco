@@ -15,7 +15,7 @@ namespace ProyectoBancoP2
 
         private void agregaBase()
         {
-            agrega("DIGITAL",10000,"PRIVILEGIOS BASICOS. NO INCLUYE TARJETA FISICA");
+            agrega("PREMIUM",20000,"PRIVILEGIOS BASICOS. NO INCLUYE TARJETA FISICA");
             agrega("BASICA",4000,"REQUIERE SALDO MINIMO");
             agrega("NOMINA",0,"DEPOSITOS DE NOMINA");
         }

@@ -61,7 +61,7 @@ namespace ProyectoBancoP2
             foreach (Movimiento data in movimientos)
             {
                 if (data.pClaveCuenta == claveC)
-                    res += data.ToString();
+                    res += data.ToString()+"\n";
             }
 
             return res;

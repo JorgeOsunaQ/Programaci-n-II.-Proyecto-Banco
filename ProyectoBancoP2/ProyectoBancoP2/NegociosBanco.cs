@@ -32,7 +32,7 @@ namespace ProyectoBancoP2
                 switch (key)
                 {
                     case 1:
-                        NegociosMovimientos negociosMovimientos = new NegociosMovimientos(manejaMovimientos,manejaCliente,manejaCuenta);
+                        NegociosMovimientos negociosMovimientos = new NegociosMovimientos(manejaMovimientos,manejaCliente,manejaCuenta, manejaCatalogoCuenta);
                         break;
                     case 2:
                         NegociosClientes negociosClientes = new NegociosClientes(manejaCliente, manejaCuenta);

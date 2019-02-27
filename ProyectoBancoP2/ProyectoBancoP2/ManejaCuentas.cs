@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProyectoBancoP2
 {
@@ -54,7 +55,6 @@ namespace ProyectoBancoP2
         public String ImprimirPorCliente(int claveCliente)
         {
             string res = "";
-
             foreach (var data in cuentas)
             {
                 if (claveCliente == data.Value.pClaveCliente)
@@ -63,7 +63,8 @@ namespace ProyectoBancoP2
                 }
             }
 
-            return res;
+            return res;         
+
         }
     }
 }

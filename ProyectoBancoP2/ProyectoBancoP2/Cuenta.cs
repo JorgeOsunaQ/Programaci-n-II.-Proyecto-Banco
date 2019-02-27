@@ -33,6 +33,7 @@ namespace ProyectoBancoP2
             set => claveCliente = value;//?
         }
 
+
         public override string ToString()
         {
             string res = String.Format("TIPO DE CUENTA: {0,-5}\n,CLAVE DEL CLIENTE ASOCIADO: {1,-3}\n " +

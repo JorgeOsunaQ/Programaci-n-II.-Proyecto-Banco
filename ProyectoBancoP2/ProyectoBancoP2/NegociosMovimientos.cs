@@ -6,12 +6,14 @@ namespace ProyectoBancoP2
         ManejaMovimiento manejadoraM;
         ManejaCliente manejadoraCli;
         ManejaCuentas manejadoraCu;
+        ManejaCatalogoCuenta manejadoraTipoC;
 
-        public NegociosMovimientos(ManejaMovimiento manejaM,ManejaCliente manejaCli,ManejaCuentas manejaCu)
+        public NegociosMovimientos(ManejaMovimiento manejaM,ManejaCliente manejaCli,ManejaCuentas manejaCu, ManejaCatalogoCuenta manejaTipo)
         {
             this.manejadoraM = manejaM;
             this.manejadoraCli = manejaCli;
             this.manejadoraCu = manejaCu;
+            this.manejadoraTipoC = manejaTipo;
             Menu();
         }
 
@@ -49,8 +51,7 @@ namespace ProyectoBancoP2
                                 case 2:
                                     RealizarRetiro();
                                     break;
-                                case 3:
-                                    ConsultaMovimientos();
+                                case 0:
                                     break;
                                 default:
                                     Console.WriteLine("\nOPCIÓN NO DISPONIBLE.");
@@ -60,6 +61,7 @@ namespace ProyectoBancoP2
                         } while (keyM!=0);
                         break;
                     case 2:
+                        ConsultaMovimientos();
                         break;
                     default:
                         Console.WriteLine("\nOPCIÓN NO DISPONIBLE.");
@@ -146,8 +148,14 @@ namespace ProyectoBancoP2
 
             } while (manejadoraCli.KeyCliente(nom.ToUpper()) != temp.pClaveCliente);
 
-                do
+            do
+            {
+                if (temp.pSaldo.Equals(manejadoraTipoC.consulta(temp.pNombre).pMontoMinimo))
                 {
+                    Console.WriteLine("EL SALDO DE LA CUENTA ES IGUAL AL MONTO MINIMO DE LA MISMA. NO PUEDE REALIZAR NINGUN RETIRO.");
+                    return;
+                }
+
                 Console.WriteLine("INGRESE LA CANTIDAD A RETIRAR DE LA CUENTA.");
                 cant = Validaciones.LeerDouble();
 
@@ -156,12 +164,11 @@ namespace ProyectoBancoP2
                     Console.WriteLine("NO SE PUEDE DEPOSITAR UNA CANTIDAD MENOR O IGUAL A 0 EN UNA CUENTA.");
                 }
 
-                if (temp.pSaldo - cant < 0)
+                if (temp.pSaldo - cant < manejadoraTipoC.consulta(temp.pNombre).pMontoMinimo)
                 {
-                    Console.WriteLine("LA CANTIDAD A RETIRAR SOBREPASA EL SALDO DISPONIBLE EN LA CUENTA.");
+                    Console.WriteLine("LA CANTIDAD A RETIRAR SOBREPASA EL MONTO MINIMO DE LA CUENTA.");
                 }
-
-            } while (cant <= 0 || temp.pSaldo-cant<0);
+            } while (cant <= 0 || temp.pSaldo-cant<manejadoraTipoC.consulta(temp.pNombre).pMontoMinimo);
 
             if (manejadoraM.Retiro(cant,claveC,nom))
             {
@@ -196,6 +203,7 @@ namespace ProyectoBancoP2
             Console.WriteLine(temp);
 
             Console.WriteLine("\nMOVIMIENTOS REALIZADOS DENTRO DE LA CUENTA.");
+            Console.WriteLine(manejadoraM.ImprimirPorCuenta(claveC));
         }
 
     }
