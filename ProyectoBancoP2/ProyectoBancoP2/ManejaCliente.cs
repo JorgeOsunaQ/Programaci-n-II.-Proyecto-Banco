@@ -1,47 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProyectoBancoP2
 {
     public class ManejaCliente
     {
 
-       private ManejaCuentas manejaCuenta;
-
         Dictionary<int, Cliente> clientes;
         int countClave = 1;
 
-        public ManejaCliente(ManejaCuentas manejaCuenta)
+        public ManejaCliente()
         {
             clientes = new Dictionary<int, Cliente>();
-            this.manejaCuenta = manejaCuenta;
         }
 
-        public void agrega(string Nombre, string Domicilio, string Ciudad, string Telefono)
+        public void Agrega(string Nombre, string Domicilio, string Ciudad, string Telefono)
         {
             clientes.Add(countClave, new Cliente(Nombre, Domicilio, Ciudad, Telefono));
             countClave++;
         }
 
-        public bool existe(int key)
+        public int Count()
+        {
+            return clientes.Count;
+        }
+
+        public bool Existe(int key)
         {
            return clientes.ContainsKey(key);
         }
 
-        public void elimina(int key)
-        {
-            clientes.Remove(key);
-        }
-
-        public string consulta(int key)
+        public string Consulta(int key)
         {
             string str="";
-            foreach (var item in clientes.Keys)//?
+            for (int i = 0; i < clientes.Count; i++)
             {
-                if (item==key)
+                var dato = clientes.ElementAt(i);
+                Cliente c = dato.Value;
+                int keyA = dato.Key;
+                if (keyA==key)
                 {
-                    str = item.ToString();
-                    break;
+                    str = "CLAVE: "+keyA+"\n"+c.ToString();
                 }
             }
             return str;
@@ -49,13 +49,17 @@ namespace ProyectoBancoP2
 
         public override string ToString()
         {
-            string str = "";
-            foreach (var item in clientes.Keys)//?
+            string str;
+            var sb = new System.Text.StringBuilder();
+            for (int i = 0; i < clientes.Count; i++)
             {
-                str = item.ToString() + "\n";
+                var dato = clientes.ElementAt(i);
+                Cliente c = dato.Value;
+                int keyA = dato.Key;
+                sb.AppendLine("\nCLAVE: " + keyA + "\n" + c);
             }
+            str = sb.ToString();
             return str;
         }
-
     }
 }

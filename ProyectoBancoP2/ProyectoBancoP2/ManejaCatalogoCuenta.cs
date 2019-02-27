@@ -5,17 +5,12 @@ namespace ProyectoBancoP2
     {
 
         private TipoCuenta[] catalogo;
-        int pos=0;
+        private static int pos=0;
 
         public ManejaCatalogoCuenta()
         {
             catalogo = new TipoCuenta[10];
             agregaBase();
-        }
-
-        public TipoCuenta[] pTipoCuenta
-        {
-            get { return catalogo; }
         }
 
         private void agregaBase()
@@ -29,6 +24,11 @@ namespace ProyectoBancoP2
         {
             catalogo[pos] = new TipoCuenta(Nombre, MontoMinimo, Descripcion);
             pos++;
+        }
+
+        public int Count()
+        {
+            return pos;
         }
 
         public TipoCuenta consulta(string Nombre)
@@ -47,6 +47,10 @@ namespace ProyectoBancoP2
             return cuenta;
         }
 
+        /*
+
+            CONSULTAR SI ES NECESARIO
+
         public void elimina(string Nombre)
         {
             for (int i = 0; i < pos; i++)
@@ -60,16 +64,20 @@ namespace ProyectoBancoP2
                 }
             }
         }
+        */
+
         public override string ToString()
         {
-            string str = "";
+            string str;
+            var sb = new System.Text.StringBuilder();
             foreach (TipoCuenta item in catalogo)
             {
                 if (item!=null)
                 {
-                    str = item+"\n";
+                    sb.AppendLine(item.ToString());
                 }
             }
+            str = sb.ToString();
             return str;
         }
     }

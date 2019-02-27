@@ -39,7 +39,11 @@ namespace ProyectoBancoP2
             string value;
             do
             {
-                value = Console.ReadLine();
+                value = (Console.ReadLine()).ToUpper();
+                if (string.IsNullOrEmpty(value))
+                {
+                    Console.WriteLine("\nCADENA VACIA, VUELVA A INGRESAR");
+                }
             } while (string.IsNullOrEmpty(value));
             return value;
         }

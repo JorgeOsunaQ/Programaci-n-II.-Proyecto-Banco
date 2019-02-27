@@ -5,20 +5,19 @@ namespace ProyectoBancoP2
 {
     public class ManejaCuentas
     {
-       private Dictionary<int, Cuenta> cuentas;
+
+        private Dictionary<int, Cuenta> cuentas;
 
         public ManejaCuentas()
         {
             this.cuentas = new Dictionary<int, Cuenta>();
         }
 
-        // agrega, consulta
         public bool Agrega(int claveCuenta, int claveCliente,double saldoInicial,string tipoCuenta)
         {
             bool flag = false;
             cuentas.Add(claveCuenta, new Cuenta(saldoInicial, tipoCuenta, claveCliente));
             flag=true;
-
             return flag;
         }
        

@@ -15,8 +15,6 @@ namespace ProyectoBancoP2
             this.manejaC = manejadora;
         }
 
-        // agrega (deposito o retiro), consulta por cuenta
-
         public bool Agrega(string Tipo, int ClaveCuenta, double Importe, string NombreDepositador)
         {
             bool flag = false;
