@@ -5,10 +5,12 @@ namespace ProyectoBancoP2
     {
 
         ManejaCliente manejaCliente;
+        ManejaCuentas manejaCuentas;
 
-        public NegociosClientes(ManejaCliente manejaCliente)
+        public NegociosClientes(ManejaCliente manejaCliente, ManejaCuentas manejaCuentas)
         {
             this.manejaCliente=manejaCliente;
+            this.manejaCuentas = manejaCuentas;
             Menu();
         }
 
@@ -63,18 +65,23 @@ namespace ProyectoBancoP2
         // BUSCA UN CLIENTE
         public void Buscar()
         {
-            int Clave;
+            string Nombre;
             Console.WriteLine("- BUSCAR CLIENTE -");
             do
             {
-                Console.WriteLine("INGRESE LA CLAVE DEL CLIENTE");
-                Clave = Validaciones.LeerInt();
-            } while (!manejaCliente.Existe(Clave));
-            Console.WriteLine(manejaCliente.Consulta(Clave));
+                Console.WriteLine("INGRESE EL NOMBRE DEL CLIENTE");
+                Nombre = Validaciones.LeerString();
+            } while (manejaCliente.KeyCliente(Nombre)==-1);
+            int ClaveC = manejaCliente.KeyCliente(Nombre);
+            Console.WriteLine("\nDATOS DEL CLIENTE");
+            Console.WriteLine(manejaCliente.Consulta(ClaveC));
+            Console.WriteLine("\nCUENTAS DEL CLIENTE\n");
+            Console.WriteLine(manejaCuentas.ImprimirPorCliente(ClaveC));
         }
 
         public void Imprimir()
         {
+            Console.WriteLine("- CLIENTES -");
             if (manejaCliente.Count() > 0)
             {
                 Console.WriteLine(manejaCliente);
