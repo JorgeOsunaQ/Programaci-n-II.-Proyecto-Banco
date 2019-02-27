@@ -15,7 +15,7 @@ namespace ProyectoBancoP2
             this.manejaC = manejadora;
         }
 
-        public bool Agrega(string Tipo, int ClaveCuenta, double Importe, string NombreDepositador)
+        private bool Agrega(string Tipo, int ClaveCuenta, double Importe, string NombreDepositador)
         {
             bool flag = false;
             movimientos.Add(new Movimiento(Tipo, ClaveCuenta, Importe, NombreDepositador));

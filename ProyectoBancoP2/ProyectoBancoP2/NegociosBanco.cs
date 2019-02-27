@@ -32,7 +32,7 @@ namespace ProyectoBancoP2
                 switch (key)
                 {
                     case 1:
-                        NegociosCuentas negociosCuentas = new NegociosCuentas(manejaCuenta,manejaCliente,manejaCatalogoCuenta);
+                        NegociosMovimientos negociosMovimientos = new NegociosMovimientos(manejaMovimientos,manejaCliente,manejaCuenta);
                         break;
                     case 2:
                         NegociosClientes negociosClientes = new NegociosClientes(manejaCliente, manejaCuenta);
@@ -44,6 +44,7 @@ namespace ProyectoBancoP2
                         NegociosCuentasBanco negociosCuentasBanco = new NegociosCuentasBanco(manejaCatalogoCuenta);
                         break;
                     default:
+                        Console.WriteLine("\nOPCIÓN NO DISPONIBLE.");
                         break;
                 }
             } while (key != 0);

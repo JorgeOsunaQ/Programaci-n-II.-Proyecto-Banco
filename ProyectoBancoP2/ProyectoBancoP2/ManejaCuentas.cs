@@ -34,6 +34,23 @@ namespace ProyectoBancoP2
             return temp;
         }
 
+        public bool EliminarCuenta(int claveC)
+        {
+            bool flag = false;
+
+            if(cuentas.ContainsKey(claveC))
+            cuentas.Remove(claveC);
+
+            flag = true;
+
+            return flag;
+        }
+
+        public int Size()
+        {
+            return cuentas.Count;
+        }
+
         public String ImprimirPorCliente(int claveCliente)
         {
             string res = "";

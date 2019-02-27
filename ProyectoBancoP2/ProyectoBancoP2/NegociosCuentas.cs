@@ -34,6 +34,7 @@ namespace ProyectoBancoP2
                         CerrarCuenta();
                         break;
                     default:
+                        Console.WriteLine("\nOPCIÓN NO DISPONIBLE.");
                         break;
                 }
             } while (key != 0);
@@ -41,6 +42,11 @@ namespace ProyectoBancoP2
 
         public void Apertura()
         {
+            if (manejadoraCli.Count() == 0)
+            {
+                Console.WriteLine("\nNO SE TIENE REGISTRO DE NINGÚN CLIENTE EN EL SISTEMA.");
+                return;
+            }
             //int claveCuenta, int claveCliente,double saldoInicial,string tipoCuenta
             int claveCliente, clave;
             string tipoCuenta;
@@ -100,6 +106,14 @@ namespace ProyectoBancoP2
         public void CerrarCuenta()
         {
             int clave;
+            string nomCliente;
+
+            if (manejadoraC.Size() == 0)
+            {
+                Console.WriteLine("\nNO SE TIENE REGISTRO DE NINGUNA CUENTA EN EL SISTEMA.");
+                return;
+            }
+
             Console.WriteLine("\n- CERRAR CUENTA-");
             do{
                 Console.WriteLine("\nINGRESE LA CLAVE DE LA CUENTA QUE DESEA CERRAR");
@@ -112,7 +126,23 @@ namespace ProyectoBancoP2
                 }
             } while (manejadoraC.BuscarCuenta(clave) == null);
 
-            Console.WriteLine("\nINGRESE EL NOMBRE DEL CLIENET A QUIÉN LE PERTENECE LA CUENTA.");
+            Console.WriteLine("\nINGRESE EL NOMBRE DEL CLIENTE A QUIÉN LE PERTENECE LA CUENTA.");
+            nomCliente = Validaciones.LeerString();
+
+            if (manejadoraCli.KeyCliente(nomCliente) == -1)
+            {
+                Console.WriteLine("NO EXISTE NINGÚN CLIENTE REGISTRADO CON ESE NOMBRE.");
+                return;
+            }
+
+            if (manejadoraC.BuscarCuenta(clave).pClaveCliente != manejadoraCli.KeyCliente(nomCliente))
+            {
+                Console.WriteLine("EL NOMBRE DEL CLIENTE NO COINCIDE CON EL QUE ESTÁ ASOCIADO A LA CUENTA.");
+                return;
+            }
+
+            manejadoraC.EliminarCuenta(clave);
+            Console.WriteLine("LA CUENTA DE CLAVE {0,-2:D4} HA SIDO ELIMINADA DEL SISTEMA.",clave);
         }
 
     }
