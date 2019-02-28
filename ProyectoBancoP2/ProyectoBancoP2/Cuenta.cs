@@ -36,8 +36,8 @@ namespace ProyectoBancoP2
 
         public override string ToString()
         {
-            string res = String.Format("TIPO DE CUENTA: {0,-5}\n,CLAVE DEL CLIENTE ASOCIADO: {1,-3}\n " +
-                "SALDO ACTUAL: {2,-3:c}",pNombre,pClaveCliente,pSaldo);
+            string res = String.Format(" TIPO DE CUENTA: {0,-5}\n CLAVE DEL CLIENTE ASOCIADO: {1,-3}\n " +
+                "\n SALDO ACTUAL: {2,-3:c}",pNombre,pClaveCliente,pSaldo);
             return res;
         }
     }

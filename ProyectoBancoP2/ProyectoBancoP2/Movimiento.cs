@@ -67,7 +67,7 @@ namespace ProyectoBancoP2
 
         public override string ToString()
         {
-            string str = string.Format("\nCLAVE DE LA CUENTA: {3,-3:D4}\nTIPO: {0}\nIMPORTE: {1}\nDEPOSITADOR: {2}", Tipo, Importe, NombreDepositador,ClaveCuenta);
+            string str = string.Format("\nCLAVE DE LA CUENTA: {3,-3:D4}\nTIPO: {0}\nIMPORTE: {1}\nREALIZADOR: {2}", Tipo, Importe, NombreDepositador,ClaveCuenta);
             return str;
         }
     }

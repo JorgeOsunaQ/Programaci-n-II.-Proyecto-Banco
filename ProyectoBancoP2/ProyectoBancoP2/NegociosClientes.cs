@@ -79,8 +79,13 @@ namespace ProyectoBancoP2
             int ClaveC = manejaCliente.KeyCliente(Nombre);
             Console.WriteLine("\nDATOS DEL CLIENTE");
             Console.WriteLine(manejaCliente.Consulta(ClaveC));
-            Console.WriteLine("\nCUENTAS DEL CLIENTE\n");
-            Console.WriteLine(manejaCuentas.ImprimirPorCliente(ClaveC));
+
+            if (!manejaCuentas.ImprimirPorCliente(ClaveC).Equals(""))
+            {
+                Console.WriteLine("\nCUENTAS DEL CLIENTE\n");
+                Console.WriteLine(manejaCuentas.ImprimirPorCliente(ClaveC));
+            }
+          
         }
 
         public void Imprimir()

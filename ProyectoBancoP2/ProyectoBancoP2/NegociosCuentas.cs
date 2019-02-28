@@ -33,6 +33,8 @@ namespace ProyectoBancoP2
                     case 2:
                         CerrarCuenta();
                         break;
+                    case 0:
+                        break;
                     default:
                         Console.WriteLine("\nOPCIÓN NO DISPONIBLE.");
                         break;
@@ -73,7 +75,13 @@ namespace ProyectoBancoP2
                 {
                     Console.WriteLine("YA SE HA ASOCIADO A UNA CUENTA CON LA CLAVE PROPORCIONADA.");
                 }
-            } while (manejadoraC.BuscarCuenta(clave) != null);
+
+                if (clave <= 0)
+                {
+                    Console.WriteLine("NO SE LE PUEDE ASIGNAR A LA CUENTA UNA CLAVE MENOR O IGUAL A 0.");
+                }
+
+            } while (manejadoraC.BuscarCuenta(clave) != null || clave<=0);
 
             Console.WriteLine(manejaTipoC);
 

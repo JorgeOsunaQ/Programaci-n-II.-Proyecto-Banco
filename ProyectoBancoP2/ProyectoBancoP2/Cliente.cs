@@ -39,7 +39,7 @@ namespace ProyectoBancoP2
 
         public override string ToString()
         {
-            string res = String.Format("NOMBRE: {0,-5}\n CIUDAD DE RESIDENCIA: {1,-3}, DOMICILIO: {2,-5}\n " +
+            string res = String.Format(" NOMBRE: {0,-5}\n CIUDAD DE RESIDENCIA: {1,-3}\n DOMICILIO: {2,-5}\n " +
                 "TELEFONO: {3,-5}",pNombre,pCiudad,pDomicilio,pTelefono);
             return res;
         }

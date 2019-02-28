@@ -59,7 +59,7 @@ namespace ProyectoBancoP2
             {
                 if (claveCliente == data.Value.pClaveCliente)
                 {
-                    res += String.Format("CLAVE DE LA CUENTA: {0,-3:D4}\n{1}",data.Key,data.Value.ToString());
+                    res += String.Format(" CLAVE DE LA CUENTA: {0,-3:D4}\n{1}",data.Key,data.Value.ToString());
                 }
             }
             return res;         

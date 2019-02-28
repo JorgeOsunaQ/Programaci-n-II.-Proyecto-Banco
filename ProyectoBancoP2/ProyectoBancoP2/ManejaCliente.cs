@@ -57,7 +57,7 @@ namespace ProyectoBancoP2
                 int keyA = dato.Key;
                 if (keyA==key)
                 {
-                    str = "\nCLAVE CLIENTE: "+keyA+"\n"+c.ToString();
+                    str = "\n CLAVE CLIENTE: "+keyA+"\n"+c.ToString();
                 }
             }
             return str;
