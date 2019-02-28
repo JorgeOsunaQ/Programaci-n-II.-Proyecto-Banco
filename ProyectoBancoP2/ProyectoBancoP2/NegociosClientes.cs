@@ -26,9 +26,7 @@ namespace ProyectoBancoP2
                 switch (key)
                 {
                     case 1:
-                        // Falta validar cliente repetido  
                         Agregar();
-                        Console.WriteLine("\nCLIENTE AGREGADO");
                         break;
                     case 2:
                         if (manejaCliente.Count() > 0) { Buscar(); }
@@ -50,6 +48,11 @@ namespace ProyectoBancoP2
             Console.WriteLine("\n- AGREGA CLIENTE-");
             Console.WriteLine("\nINGRESE EL NOMBRE");
             Nombre = Validaciones.LeerString();
+            if (manejaCliente.KeyCliente(Nombre)!=-1)
+            {
+                Console.WriteLine("\nEL CLIENTE YA EXISTE");
+                return;
+            }
             Console.WriteLine("\nINGRESE EL DOMICILIO");
             Domicilio = Validaciones.LeerString();
             Console.WriteLine("\nINGRESE LA CIUDAD");
@@ -60,6 +63,7 @@ namespace ProyectoBancoP2
                 Telefono = Validaciones.LeerString();
             } while (!Validaciones.ValidaTelefono(Telefono));
             manejaCliente.Agrega(Nombre, Domicilio, Ciudad, Telefono);
+            Console.WriteLine("\nCLIENTE AGREGADO");
         }
 
         // BUSCA UN CLIENTE

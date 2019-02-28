@@ -55,16 +55,14 @@ namespace ProyectoBancoP2
         public String ImprimirPorCliente(int claveCliente)
         {
             string res = "";
-            foreach (var data in cuentas)
+            foreach (KeyValuePair<int, Cuenta> data in cuentas)
             {
                 if (claveCliente == data.Value.pClaveCliente)
                 {
                     res += String.Format("CLAVE DE LA CUENTA: {0,-3:D4}\n{1}",data.Key,data.Value.ToString());
                 }
             }
-
             return res;         
-
         }
     }
 }
